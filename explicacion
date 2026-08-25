@@ -1,0 +1,217 @@
+# Proyecto: Videojuego de Batalla por Consola (POO)
+
+
+
+Crea un videojuego que tenga las siguientes clases:
+
+
+
+- *personaje*: Clase base para todos los personajes del juego.
+
+- *guerrero*: Clase que hereda de personaje y representa a un guerrero.
+
+- *mago*: Clase que hereda de personaje y representa a un mago.
+
+- *arquero*: Clase que hereda de personaje y representa a un arquero.
+
+- *clerigo*: Clase que hereda de personaje y representa a un clérigo.
+
+- *picaro*: Clase que hereda de personaje y representa a un pícaro.
+
+
+
+## Clases
+
+
+
+*personaje* tiene las siguientes propiedades y métodos:
+
+
+
+- nombre: Nombre del personaje.
+
+- vida: Vida del personaje.
+
+- daño: Daño del personaje.
+
+- defensa: Defensa del personaje.
+
+- velocidad: Velocidad del personaje.
+
+- atacar(): Método utilizado para atacar (con los puños).
+
+- saludar(): Método utilizado para saludar indicando nombre y clase.
+
+
+
+*guerrero* tiene las siguientes propiedades y métodos:
+
+
+
+- array_de_armas: Armas que puede usar el guerrero.
+
+- atacar_con_arma(): Método utilizado para atacar con un arma aleatoria del array.
+
+
+
+*mago* tiene las siguientes propiedades y métodos:
+
+
+
+- array_de_hechizos: Hechizos que puede usar el mago.
+
+- atacar_con_hechizo(): Método utilizado para atacar con un hechizo aleatorio del array.
+
+
+
+*arquero* tiene las siguientes propiedades y métodos:
+
+
+
+- array_de_flechas: Flechas que puede usar el arquero.
+
+- disparar(): Método utilizado para disparar una flecha aleatoria del array.
+
+
+
+*clerigo* tiene las siguientes propiedades y métodos:
+
+
+
+- array_de_plegarias: Plegarias que puede usar el clérigo.
+
+- atacar_con_plegaria(): Método utilizado para atacar con una plegaria aleatoria del array.
+
+- curar(): Método utilizado para curarse a sí mismo (maximo 25% de la vida), recuperando una cantidad aleatoria de vida (curar consume el turno de ataque de esa ronda).
+
+
+
+*picaro* tiene las siguientes propiedades y métodos:
+
+
+
+- array_de_dagas: Dagas que puede usar el pícaro.
+
+- atacar_con_daga(): Método utilizado para atacar con una daga aleatoria del array.
+
+- Ataque furtivo: los ataques del pícaro tienen un 5% de probabilidad de ser críticos, ignorando la defensa del personaje atacado (el ataque siempre tiene éxito).
+
+
+
+## Reglas del juego
+
+
+
+Debes de crear al menos 7 personajes: al menos 2 deben de ser guerreros, 2 magos, 1 arquero, 1 clérigo y 1 pícaro.
+
+
+
+Al iniciar el juego, cada personaje debe saludar indicando su nombre y clase.
+
+
+
+Luego habrá una ronda de ataques. En cada ronda, cada personaje atacará a otro personaje de forma aleatoria.
+
+
+
+Cada personaje solo puede atacar una vez por ronda (O realizar una accion por ronda).
+
+
+
+Además, el orden de la ronda debe ser determinado de forma aleatoria pero tomando en cuenta la velocidad de cada personaje.
+
+
+
+Para ello debes jugar con las probabilidades de cada personaje, por ejemplo:
+
+
+
+- Si el personaje tiene una velocidad de 10, debes generar un número aleatorio entre 1 y 10.
+
+- Según el número aleatorio generado, será determinado el orden de ataque de cada personaje en esa ronda.
+
+
+
+Ejemplo:
+
+
+
+
+
+Personaje 1: 5
+
+Personaje 2: 8
+
+Personaje 3: 2
+
+Personaje 4: 10
+
+Personaje 5: 6
+
+
+
+
+
+El personaje 4 atacará primero, luego el personaje 2, luego el personaje 5, luego el personaje 1 y por último el personaje 3.
+
+
+
+Cuando un personaje ataque a otro, se utilizará la siguiente lógica:
+
+
+
+- El personaje atacado se intentará defender, este generará un número aleatorio entre 1 y su defensa.
+
+- Si el número aleatorio es mayor que el daño del atacante, el ataque falla y no se le resta vida al personaje atacado.
+
+- Si el número aleatorio es menor o igual al daño del atacante, el ataque tiene éxito y se le resta vida al personaje atacado.
+
+
+
+Al momento de atacar, se debe mostrar un mensaje indicando quién ataca a quién y si el ataque fue exitoso o fallido.
+
+
+
+Además, hay un tercio de posibilidades de que un personaje ataque con sus puños y dos tercios de posibilidades de que ataque con su arma, hechizo, flecha, plegaria o daga (según su clase).
+
+
+
+Cuando la vida de un personaje llegue a 0, este será eliminado del juego y no podrá atacar más.
+
+
+
+El juego termina cuando solo quede un personaje con vida.
+
+
+
+Es importante que cuando un personaje muera, se muestre un mensaje indicando que ha muerto y que no puede atacar más.
+
+
+
+Además, al final del juego, se debe mostrar un mensaje indicando quién es el ganador.
+
+
+
+El juego es ganado por el personaje que quede con vida al final.
+
+
+
+*Nota:* es importante imprimir cada número de ronda.
+
+Ejemplo: "Ronda 1", "Ronda 2", etc.
+
+
+
+## Puntos opcionales
+
+
+
+- Implementa un sistema de habilidades especiales para cada clase, estas habilidades solo pueden ser utilizadas una vez por juego (Probabilidad de un 1% de usarse).
+
+- Implementa un inventario y objetos para cada personaje, los cuales pueden ser utilizados para mejorar sus habilidades o recuperar vida, sin embargo estos consumirán un turno de ataque y tienen un número limitado de usos.
+
+- Agrega la clase vampiro cuyos ataques regeneran un % aleatorio de vida al personaje del daño realizado.
+
+- Agrega la posibilidad de 1 entre 10 de que un personaje se tropiece y no pueda hacer nada en esa ronda.
+
+- Agregarle un array de mensajes aleatorios de ataque para que el juego se sienta mas vivido. Puedes hacer que cada arma/hechizo etc tenga sus propios mensajes
